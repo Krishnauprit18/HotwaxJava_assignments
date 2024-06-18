@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Triangle class representing a tirangle shape.
+ */
 class Triangle extends Shape{
     private double base;
     private double height;

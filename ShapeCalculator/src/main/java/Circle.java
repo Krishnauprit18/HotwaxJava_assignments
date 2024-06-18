@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Circle class representing a circle shape.
+ */
 class Circle extends Shape {
     private double radius;
 

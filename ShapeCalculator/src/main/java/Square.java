@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Square class representing a square shape.
+ */
 class Square extends Shape{
     private double side;
 

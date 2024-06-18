@@ -1,8 +1,5 @@
 package main.java;
 
-import java.awt.*;
-import java.awt.im.spi.InputMethodDescriptor;
-import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -21,7 +18,15 @@ public class ShapeCalculator{
             System.out.println("7. Exit");
 
             System.out.println("Enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = 0;
+            try{
+                choice = scanner.nextInt();
+            }
+            catch(InputMismatchException e){
+                System.out.println("Invalid input. Please enter a number between 1 and 7");
+                scanner.nextInt();
+                continue;
+            }
 
             if(choice == 7){
                 System.out.println("Exiting the program...");
@@ -170,7 +175,7 @@ public class ShapeCalculator{
 
     public static Cylinder createCylinder(Scanner scanner){
         try{
-            System.out.println("Enter the radus of the cylinder: ");
+            System.out.println("Enter the radius of the cylinder: ");
             double radius = scanner.nextDouble();
             System.out.println("Enter height of cylinder: ");
             double height = scanner.nextDouble();
@@ -193,7 +198,12 @@ public class ShapeCalculator{
 
     public static void displayResults(Shape shape){
         System.out.println("Area: " + shape.calculateArea());
-        System.out.println("Perimeter: " + shape.calculatePerimeter());
+        try {
+            System.out.println("Perimeter: " + shape.calculatePerimeter());
+        }
+        catch(UnsupportedOperationException e){
+
+        }
         try{
             System.out.println("Volume: " + shape.calculateVolume());
         }

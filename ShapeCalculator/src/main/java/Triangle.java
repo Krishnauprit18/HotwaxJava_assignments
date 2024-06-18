@@ -1,11 +1,11 @@
 package main.java;
 
 /**
- * Triangle class representing a tirangle shape.
+ * Triangle class representing a triangle shape.
  */
 class Triangle extends Shape{
-    private double base;
-    private double height;
+    private final double base;
+    private final double height;
 
     Triangle(double base, double height){
         this.base = base;

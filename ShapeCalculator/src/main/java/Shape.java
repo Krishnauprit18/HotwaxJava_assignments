@@ -18,6 +18,12 @@ abstract class Shape{
     abstract double calculatePerimeter();
 
     /**
+     * Calculates the Circumference of Circle.
+     * @return The Circumference of the circle
+     */
+    abstract double calculateCircumference();
+
+    /**
      * Calculates the Volume of the shape.
      * Only applicable for 3-D shapes
      * @return The volume of the shape

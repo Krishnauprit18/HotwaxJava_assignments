@@ -1,14 +1,18 @@
 package com.wordcount;
 
 import java.io.IOException;
+import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * Main Application class for word counting.
  */
 public class App{
+
+    private static final String CONFIG_FILE_PATH = "src/resources/config.properties";
 
     /**
      * Main method to count words form URLS and save the word counts.
@@ -16,8 +20,19 @@ public class App{
      * @throws IOException  if an I/O error occurs
      */
     public static void main(String[] args){
+        Properties properties = new Properties();
+        try(FileInputStream fis = new FileInputStream(CONFIG_FILE_PATH)){
+            properties.load(fis);
+        }
+        catch(IOException e) {
+            System.out.println("Error loading configuration file " + e.getMessage());
+        }
+
+        String urlsFilePath = properties.getProperty("urlsFilePath");
+        String wordsFilePath = properties.getProperty("wordsFilePath");
+
         try{
-            List<String> urls = Input.readUrls("src/resources/urls.txt");
+            List<String> urls = Input.readUrls(urlsFilePath);
             if (urls.isEmpty()){
                 System.out.println("No URL's found or Error reading URL's file");
                 return;
@@ -49,7 +64,7 @@ public class App{
                 ResultAggregator.printTopWords(wordCounts, 3);
             }
 
-            ResultAggregator.saveWordCounts("src/resources/words.txt", totalWordCounts);
+            ResultAggregator.saveWordCounts(wordsFilePath, totalWordCounts);
         } catch (IOException e) {
             System.err.println("An unexpected error occurred: " + e.getMessage());
             e.printStackTrace();

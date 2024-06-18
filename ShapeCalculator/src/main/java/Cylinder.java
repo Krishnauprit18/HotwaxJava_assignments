@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Cylinder class representing a cylinder shape.
+ */
 class Cylinder extends Shape{
     private double radius;
     private double height;
@@ -24,3 +27,5 @@ class Cylinder extends Shape{
         return Math.PI * radius * radius * height;
     }
 }
+
+

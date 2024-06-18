@@ -16,6 +16,15 @@ class Circle extends Shape {
     }
 
     @Override
+    double calculatePerimeter() {
+        throw new UnsupportedOperationException("Circle does not have a perimeter, it has a circumference.");
+    }
+
+    /**
+     * Calculates the circumference of the circle.
+     * @return The circumference of the circle.
+     */
+    @Override
     double calculateCircumference(){
         return 2 * Math.PI * radius;
     }

@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Main class to calculate area, perimeter and volume of different shapes.
+ */
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -62,7 +65,6 @@ public class ShapeCalculator{
                 displayResults(shape);
             }
         }
-
         scanner.close();
     }
 
@@ -70,6 +72,7 @@ public class ShapeCalculator{
         try{
             System.out.println("Enter radius: ");
             double radius = scanner.nextDouble();
+
             if(radius <= 0){
                 throw new InvalidDimensionException("Radius must be positive");
             }
@@ -90,8 +93,10 @@ public class ShapeCalculator{
         try{
             System.out.println("Enter the length of rectangle: ");
             double length = scanner.nextDouble();
+
             System.out.println("Enter the width of rectangle: ");
             double width = scanner.nextDouble();
+
             if(length <= 0 || width <= 0){
                 throw new InvalidDimensionException("Length and Width must be positive");
             }
@@ -112,6 +117,7 @@ public class ShapeCalculator{
         try{
             System.out.println("Enter the base of Triangle: ");
             double base = scanner.nextDouble();
+
             System.out.println("Enter the height of Triangle: ");
             double height = scanner.nextDouble();
 
@@ -177,6 +183,7 @@ public class ShapeCalculator{
         try{
             System.out.println("Enter the radius of the cylinder: ");
             double radius = scanner.nextDouble();
+
             System.out.println("Enter height of cylinder: ");
             double height = scanner.nextDouble();
 
@@ -198,17 +205,18 @@ public class ShapeCalculator{
 
     public static void displayResults(Shape shape){
         System.out.println("Area: " + shape.calculateArea());
+
         try {
             System.out.println("Perimeter: " + shape.calculatePerimeter());
         }
         catch(UnsupportedOperationException e){
-
+            // Do nothing as some shapes don't have Perimeter
         }
         try{
             System.out.println("Volume: " + shape.calculateVolume());
         }
         catch(UnsupportedOperationException e){
-
+            // Do nothing as some shapes don't have Volume
         }
     }
 }

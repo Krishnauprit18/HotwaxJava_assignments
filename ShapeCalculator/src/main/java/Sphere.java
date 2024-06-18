@@ -21,6 +21,11 @@ class Sphere extends Shape{
     }
 
     @Override
+    double calculateCircumference() {
+            throw new UnsupportedOperationException("Sphere doesn't have circumference");
+    }
+
+    @Override
     double calculateVolume(){
         return (4.0 / 3) * Math.PI * radius * radius;
         }

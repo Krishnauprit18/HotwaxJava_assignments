@@ -23,6 +23,11 @@ class Rectangle extends Shape {
     }
 
     @Override
+    double calculateCircumference(){
+        throw new UnsupportedOperationException("Rectangle doesn't have circumference");
+    }
+
+    @Override
     double calculateVolume(){
         throw new UnsupportedOperationException("Volume is calculated for 3-D shapes only");
     }

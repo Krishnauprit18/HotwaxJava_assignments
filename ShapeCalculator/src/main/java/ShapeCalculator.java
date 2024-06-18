@@ -203,20 +203,21 @@ public class ShapeCalculator{
         }
     }
 
-    public static void displayResults(Shape shape){
+    private static void displayResults(Shape shape) {
         System.out.println("Area: " + shape.calculateArea());
-
         try {
-            System.out.println("Perimeter: " + shape.calculatePerimeter());
+            if (shape instanceof Circle) {
+                System.out.println("Circumference: " + ((Circle) shape).calculateCircumference());
+            } else {
+                System.out.println("Perimeter: " + shape.calculatePerimeter());
+            }
+        } catch (UnsupportedOperationException e) {
+            // Do nothing as some shapes don't have a perimeter
         }
-        catch(UnsupportedOperationException e){
-            // Do nothing as some shapes don't have Perimeter
-        }
-        try{
+        try {
             System.out.println("Volume: " + shape.calculateVolume());
-        }
-        catch(UnsupportedOperationException e){
-            // Do nothing as some shapes don't have Volume
+        } catch (UnsupportedOperationException e) {
+            // Do nothing as some shapes don't have volume
         }
     }
 }

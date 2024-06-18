@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Sphere class representing a sphere shape.
+ */
 class Sphere extends Shape{
     private double radius;
 

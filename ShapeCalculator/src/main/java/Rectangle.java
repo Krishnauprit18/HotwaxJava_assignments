@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Circle Rectangle representing a rectangle shape.
+ */
 class Rectangle extends Shape {
     private final double length;
     private final double width;

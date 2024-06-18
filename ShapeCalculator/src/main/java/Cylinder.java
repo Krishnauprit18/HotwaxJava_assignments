@@ -23,9 +23,12 @@ class Cylinder extends Shape{
     }
 
     @Override
+    double calculateCircumference() {
+        throw new UnsupportedOperationException("Cylinder doesn't have circumference");
+    }
+
+    @Override
     double calculateVolume(){
         return Math.PI * radius * radius * height;
     }
 }
-
-
